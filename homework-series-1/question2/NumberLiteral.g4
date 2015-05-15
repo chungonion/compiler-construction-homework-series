@@ -1,0 +1,14 @@
+lexer grammar NumberLiteral;
+
+@header{package question2;}
+
+INT_BINARY : '0b' [0-1]+;
+LONG_BINARY : INT_BINARY LONG_SUFFIX;
+INT_OCTAL : '0' [0-7]+;
+LONG_OCTAL : INT_OCTAL LONG_SUFFIX;
+INT_DECIMAL : '0' | [1-9] [0-9]+;
+LONG_DECIMAL : INT_DECIMAL LONG_SUFFIX;
+INT_HEXADECIMAL : '0x' [0-9a-f]+;
+LONG_HEXADECIMAL : INT_HEXADECIMAL LONG_SUFFIX;
+
+fragment LONG_SUFFIX : ('l'|'L');

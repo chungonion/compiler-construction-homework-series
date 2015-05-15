@@ -8,52 +8,56 @@
 			<initial/>
 		</state>
 		<state id="1" name="q1">
-			<x>173.0</x>
-			<y>142.0</y>
+			<x>226.0</x>
+			<y>53.0</y>
 			<label>binary (int)</label>
 			<final/>
 		</state>
 		<state id="2" name="q2">
-			<x>172.0</x>
-			<y>272.0</y>
+			<x>227.0</x>
+			<y>355.0</y>
 			<label>decimal (int)</label>
 			<final/>
 		</state>
 		<state id="3" name="q3">
-			<x>263.0</x>
-			<y>352.0</y>
+			<x>414.0</x>
+			<y>355.0</y>
 			<label>decimal (long)</label>
 			<final/>
 		</state>
 		<state id="4" name="q4">
-			<x>350.0</x>
-			<y>16.0</y>
+			<x>409.0</x>
+			<y>53.0</y>
 			<label>binary (long)</label>
 			<final/>
 		</state>
 		<state id="5" name="q5">
-			<x>348.0</x>
-			<y>142.0</y>
+			<x>226.0</x>
+			<y>252.0</y>
 			<label>octal (int)</label>
 			<final/>
 		</state>
 		<state id="6" name="q6">
-			<x>562.0</x>
-			<y>142.0</y>
+			<x>224.0</x>
+			<y>153.0</y>
 			<label>hexadecimal (int)</label>
 			<final/>
 		</state>
 		<state id="7" name="q7">
-			<x>485.0</x>
-			<y>268.0</y>
+			<x>410.0</x>
+			<y>252.0</y>
 			<label>octal (long)</label>
 			<final/>
 		</state>
 		<state id="8" name="q8">
-			<x>712.0</x>
-			<y>268.0</y>
+			<x>408.0</x>
+			<y>153.0</y>
 			<label>hexadecimal (long)</label>
 			<final/>
+		</state>
+		<state id="9" name="q9">
+			<x>100.0</x>
+			<y>53.0</y>
 		</state>
 		<!--The list of transitions.-->
 		<transition>
@@ -62,19 +66,29 @@
 			<read>0-9a-f</read>
 		</transition>
 		<transition>
+			<from>6</from>
+			<to>8</to>
+			<read>l,L</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read>l,L</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>l,L</read>
+		</transition>
+		<transition>
 			<from>5</from>
 			<to>7</to>
 			<read>l,L</read>
 		</transition>
 		<transition>
-			<from>0</from>
+			<from>9</from>
 			<to>1</to>
-			<read>0</read>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>4</to>
-			<read>l|L</read>
+			<read>b</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -87,34 +101,29 @@
 			<read>1-9</read>
 		</transition>
 		<transition>
+			<from>9</from>
+			<to>5</to>
+			<read>0-7</read>
+		</transition>
+		<transition>
 			<from>5</from>
 			<to>5</to>
 			<read>0-7</read>
 		</transition>
 		<transition>
+			<from>0</from>
+			<to>9</to>
+			<read>0</read>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>6</to>
+			<read>x</read>
+		</transition>
+		<transition>
 			<from>2</from>
 			<to>2</to>
 			<read>0-9</read>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>5</to>
-			<read>2-7</read>
-		</transition>
-		<transition>
-			<from>5</from>
-			<to>6</to>
-			<read>8-9a-f</read>
-		</transition>
-		<transition>
-			<from>2</from>
-			<to>3</to>
-			<read>l,L</read>
-		</transition>
-		<transition>
-			<from>6</from>
-			<to>8</to>
-			<read>l,L</read>
 		</transition>
 	</automaton>
 </structure>

@@ -108,3 +108,17 @@ a[i+1]+b.field
 ((Type)x).i-10+y
 (e (e (e (f (g (g (a ( (e (f ( Type ) (f (g (a x))))) ))) . i))) - (f (g (a 10)))) + (f (g (a y))))
 ```
+
+3.
+
+```
+E  -> F E'
+E' -> E ('+' | '-') F | epsilon
+F  -> '(' ID ')' F
+   |  G
+G  -> A G'
+G' -> G('[' E ']' | '.' ID) | epsilon
+A  -> '(' E ')'
+   |  NUM
+   |  ID
+```

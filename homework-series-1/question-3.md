@@ -98,3 +98,13 @@ A . ID - F + F
           |
           ID
 ```
+
+2.
+
+```
+a[i+1]+b.field
+(e (e (f (g (g (a a)) [ (e (e (f (g (a i)))) + (f (g (a 1)))) ]))) + (f (g (g (a b)) . field)))
+
+((Type)x).i-10+y
+(e (e (e (f (g (g (a ( (e (f ( Type ) (f (g (a x))))) ))) . i))) - (f (g (a 10)))) + (f (g (a y))))
+```

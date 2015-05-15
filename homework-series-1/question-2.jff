@@ -58,6 +58,8 @@
 		<state id="9" name="q9">
 			<x>100.0</x>
 			<y>53.0</y>
+			<label>decimal (int)</label>
+			<final/>
 		</state>
 		<!--The list of transitions.-->
 		<transition>

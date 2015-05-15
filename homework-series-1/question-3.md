@@ -52,30 +52,30 @@ ID    F   G
 ((Type) x).i - 10 + y
 
 E
-E - F
-E + F - F
-F + F - F
-G + F - F
-G . ID + F - F
-A . ID + F - F
-( E ) . ID + F - F
-( F ) . ID + F - F
-( ( ID ) F ) . ID + F - F
-( ( ID ) G ) . ID + F - F
-( ( ID ) A ) . ID + F - F
-( ( ID ) ID ) . ID + F - F
-( ( ID ) ID ) . ID + G - F
-( ( ID ) ID ) . ID + A - F
-( ( ID ) ID ) . ID + NUM - F
-( ( ID ) ID ) . ID + NUM - G
-( ( ID ) ID ) . ID + NUM - A
-( ( ID ) ID ) . ID + NUM - ID
+E + F
+E - F + F
+F - F + F
+G - F + F
+G . ID - F + F
+A . ID - F + F
+( E ) . ID - F + F
+( F ) . ID - F + F
+( ( ID ) F ) . ID - F + F
+( ( ID ) G ) . ID - F + F
+( ( ID ) A ) . ID - F + F
+( ( ID ) ID ) . ID - F + F
+( ( ID ) ID ) . ID - G - F
+( ( ID ) ID ) . ID - A - F
+( ( ID ) ID ) . ID - NUM - F
+( ( ID ) ID ) . ID - NUM - G
+( ( ID ) ID ) . ID - NUM - A
+( ( ID ) ID ) . ID - NUM - ID
 
              E
             /|\
-           E - F
+           E + F
           /|\   \
-         E + F   G
+         E - F   G
          |   |   |
          F   G   A
          |   |   |

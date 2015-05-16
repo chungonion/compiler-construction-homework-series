@@ -76,6 +76,7 @@ public class NumberLiteralTest {
         tester.yields("0x0", NumberLiteral.INT_HEXADECIMAL);
         tester.yields("0x00", NumberLiteral.INT_HEXADECIMAL);
         tester.yields("0xabcd", NumberLiteral.INT_HEXADECIMAL);
+        tester.yields("0xABCD", NumberLiteral.INT_HEXADECIMAL);
 
         tester.wrong("0xg");
     }
@@ -85,8 +86,15 @@ public class NumberLiteralTest {
         tester.yields("0x0L", NumberLiteral.LONG_HEXADECIMAL);
         tester.yields("0x00L", NumberLiteral.LONG_HEXADECIMAL);
         tester.yields("0xabcdL", NumberLiteral.LONG_HEXADECIMAL);
+        tester.yields("0xABCDL", NumberLiteral.LONG_HEXADECIMAL);
+
+        tester.yields("0x0l", NumberLiteral.LONG_HEXADECIMAL);
+        tester.yields("0x00l", NumberLiteral.LONG_HEXADECIMAL);
+        tester.yields("0xabcdl", NumberLiteral.LONG_HEXADECIMAL);
+        tester.yields("0xABCDl", NumberLiteral.LONG_HEXADECIMAL);
 
         tester.wrong("0x0LL");
+        tester.wrong("0xGL");
         tester.wrong("0xgL");
     }
 }

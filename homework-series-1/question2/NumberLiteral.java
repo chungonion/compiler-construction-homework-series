@@ -1,13 +1,12 @@
 // Generated from /Users/twancoenraad/Code/compiler-construction-homework-series/homework-series-1/question2/NumberLiteral.g4 by ANTLR 4.5
 package question2;
-import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.LexerATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class NumberLiteral extends Lexer {
@@ -95,10 +94,10 @@ public class NumberLiteral extends Lexer {
 		"$\3\5\3\5\3\5\3\6\3\6\3\6\6\6-\n\6\r\6\16\6.\5\6\61\n\6\3\7\3\7\3\7\3"+
 		"\b\3\b\3\b\3\b\6\b:\n\b\r\b\16\b;\3\t\3\t\3\t\3\n\3\n\2\2\13\3\3\5\4\7"+
 		"\5\t\6\13\7\r\b\17\t\21\n\23\2\3\2\b\3\2\62\63\3\2\629\3\2\63;\3\2\62"+
-		";\4\2\62;ch\4\2NNnnE\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2"+
-		"\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\3\25\3\2\2\2\5\35\3"+
-		"\2\2\2\7 \3\2\2\2\t&\3\2\2\2\13\60\3\2\2\2\r\62\3\2\2\2\17\65\3\2\2\2"+
-		"\21=\3\2\2\2\23@\3\2\2\2\25\26\7\62\2\2\26\27\7d\2\2\27\31\3\2\2\2\30"+
+		";\5\2\62;CHch\4\2NNnnE\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2"+
+		"\2\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\3\25\3\2\2\2\5\35"+
+		"\3\2\2\2\7 \3\2\2\2\t&\3\2\2\2\13\60\3\2\2\2\r\62\3\2\2\2\17\65\3\2\2"+
+		"\2\21=\3\2\2\2\23@\3\2\2\2\25\26\7\62\2\2\26\27\7d\2\2\27\31\3\2\2\2\30"+
 		"\32\t\2\2\2\31\30\3\2\2\2\32\33\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34"+
 		"\4\3\2\2\2\35\36\5\3\2\2\36\37\5\23\n\2\37\6\3\2\2\2 \"\7\62\2\2!#\t\3"+
 		"\2\2\"!\3\2\2\2#$\3\2\2\2$\"\3\2\2\2$%\3\2\2\2%\b\3\2\2\2&\'\5\7\4\2\'"+

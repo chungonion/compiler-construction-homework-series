@@ -1,10 +1,15 @@
 package question2;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class NumberLiteralTest {
+    LexerTester tester;
 
-    LexerTester tester = new LexerTester(NumberLiteral.class);
+    @Before
+    public void setUp() {
+        tester = new LexerTester(NumberLiteral.class);
+    }
 
     @Test
     public void testIntBinary() {
@@ -43,7 +48,6 @@ public class NumberLiteralTest {
         tester.yields("0L", NumberLiteral.LONG_DECIMAL);
         tester.yields("1234L", NumberLiteral.LONG_DECIMAL);
     }
-
 
     @Test
     public void testIntHexadecimal() {

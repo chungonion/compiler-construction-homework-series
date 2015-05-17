@@ -135,23 +135,23 @@ A . ID - F + F
 
 ### FOLLOW
 
-| - | init |               1 |           2 |
-|---|------|-----------------|-------------|
-| E |  eof |         eof ] ) |
-| E'|    Ø |             eof |
-| F |    Ø | eof + - epsilon |
-| G |    Ø | eof + - epsilon |
-| G'|    Ø | eof + - epsilon |
-| A |    Ø |     [ . epsilon |
+| - | init |               1 |               2 |
+|---|------|-----------------|-----------------|
+| E |  eof |         eof ] ) |         eof ] ) |
+| E'|    Ø |         eof ] ) |             eof |
+| F |    Ø | eof + - epsilon | eof + - epsilon |
+| G |    Ø | eof + - epsilon | eof + - epsilon |
+| G'|    Ø | eof + - epsilon | eof + - epsilon |
+| A |    Ø |     [ . epsilon |     [ . epsilon |
 
 ### FIRST+
 
-|   - |                  first |      follow | first+
-|-----|------------------------|-------------|------
+|   - |                  first |          follow | first+
+|-----|------------------------|-----------------|------
 | 1.1 |               ( num id |                 | num id
 | 2.1 |                      + |                 | +
 | 2.2 |                      - |                 | -
-| 2.3 |                epsilon |             eof | epsilon eof
+| 2.3 |                epsilon |         eof ] ) | epsilon eof
 | 3.1 |                      ( |                 | (
 | 3.2 |               ( num id |                 | ( num id
 | 4.1 |               ( num id |                 | ( num id

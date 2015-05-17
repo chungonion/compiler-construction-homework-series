@@ -101,24 +101,64 @@ A . ID - F + F
 
 2.
 
-```
-a[i+1]+b.field
-(e (e (f (g (g (a a)) [ (e (e (f (g (a i)))) + (f (g (a 1)))) ]))) + (f (g (g (a b)) . field)))
-
-((Type)x).i-10+y
-(e (e (e (f (g (g (a ( (e (f ( Type ) (f (g (a x))))) ))) . i))) - (f (g (a 10)))) + (f (g (a y))))
-```
+-
 
 3.
 
 ```
-E  -> F E'
-E' -> E ('+' | '-') F | epsilon
-F  -> '(' ID ')' F
-   |  G
-G  -> A G'
-G' -> G('[' E ']' | '.' ID) | epsilon
-A  -> '(' E ')'
-   |  NUM
-   |  ID
+1.1 E  -> F E'
+2.1 E' -> '+' F E'
+2.2    | '-' F E'
+2.3    | epsilon
+3.1 F  -> '(' ID ')' F
+3.2    |  G
+4.1 G  -> A G'
+5.1 G' -> '[' E ']' G'
+5.2    | '.' ID G'
+5.3    | epsilon
+6.1 A  -> '(' E ')'
+6.2    |  NUM
+6.3    |  ID
 ```
+
+4.
+### FIRST
+
+| - |           1 |           2 |           3 |           4 |
+|---|-------------|-------------|-------------|-------------|
+| E |           Ø |           ( |    ( num id |    ( num id |  
+| E'| + - epsilon | + - epsilon | + - epsilon | + - epsilon |
+| F |           ( |           ( |    ( num id |    ( num id |
+| G |           Ø |    ( num id |    ( num id |    ( num id |
+| G'| [ . epsilon | [ . epsilon | [ . epsilon | [ . epsilon |
+| A |    ( num id |    ( num id |    ( num id |    ( num id |
+
+### FOLLOW
+
+| - | init |               1 |           2 |
+|---|------|-----------------|-------------|
+| E |  eof |         eof ] ) |
+| E'|    Ø |             eof |
+| F |    Ø | eof + - epsilon |
+| G |    Ø | eof + - epsilon |
+| G'|    Ø | eof + - epsilon |
+| A |    Ø |     [ . epsilon |
+
+### FIRST+
+
+|   - |                  first |      follow | first+
+|-----|------------------------|-------------|------
+| 1.1 |               ( num id |                 | num id
+| 2.1 |                      + |                 | +
+| 2.2 |                      - |                 | -
+| 2.3 |                epsilon |             eof | epsilon eof
+| 3.1 |                      ( |                 | (
+| 3.2 |               ( num id |                 | ( num id
+| 4.1 |               ( num id |                 | ( num id
+| 5.1 |                      [ |                 | [
+| 5.2 |                      . |                 | .
+| 5.3 |                epsilon | eof [ . epsilon | epsilon [ .
+| 6.1 |               ( num id |                 | ( num id
+| 6.2 |                    num |                 | num
+| 6.3 |                     id |                 | id
+

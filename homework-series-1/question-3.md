@@ -163,3 +163,5 @@ A . ID - F + F
 | 6.3 |       id |             |              id |
 
 5.
+
+The FIRST+ set contains non-empty intersections for the F non-terminal, which makes it not LL(1) compliant. For example, this goes wrong on input `(35)`, because at the F rule this can either go to 3.1 or 6.1, through 4.1. For a LL(1) parser, this has decision should be clear by just looking one step ahead.

@@ -1,6 +1,11 @@
 grammar SBN;
 
+@header{package question4;}
+
 number : sign list;
-sign : '+' | '-';
-list : list bit | bit;
-bit : '0' | '1';
+sign : '+' #pos
+     | '-' #neg;
+list : list bit #listListBit
+     | bit #listBit;
+bit : '0' #zero
+    | '1' #one;

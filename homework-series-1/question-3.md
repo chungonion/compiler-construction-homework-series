@@ -146,20 +146,20 @@ A . ID - F + F
 
 ### FIRST+
 
-|   - |    first |      follow |      first+ |
-|-----|----------|-------------|-------------|
-| 1.1 | ( num id |             |      num id |
-| 2.1 |        + |             |           + |
-| 2.2 |        - |             |           - |
-| 2.3 |  epsilon |     eof ] ) | epsilon eof |
-| 3.1 |        ( |             |           ( |
-| 3.2 |   num id |             |    ( num id |
-| 4.1 |   num id |             |    ( num id |
-| 5.1 |        [ |             |           [ |
-| 5.2 |        . |             |           . |
-| 5.3 |  epsilon | + - eof ] ) |     eof + - |
-| 6.1 |        ( |             |           ( |
-| 6.2 |      num |             |         num |
-| 6.3 |       id |             |          id |
+|   - |    first |      follow |          first+ |
+|-----|----------|-------------|-----------------|
+| 1.1 | ( num id |             |        ( num id |
+| 2.1 |        + |             |               + |
+| 2.2 |        - |             |               - |
+| 2.3 |  epsilon |     eof ] ) | epsilon eof ] ) |
+| 3.1 |        ( |             |               ( |
+| 3.2 |   num id |             |        ( num id |
+| 4.1 |   num id |             |        ( num id |
+| 5.1 |        [ |             |               [ |
+| 5.2 |        . |             |               . |
+| 5.3 |  epsilon | + - eof ] ) |     eof + - ] ) |
+| 6.1 |        ( |             |               ( |
+| 6.2 |      num |             |             num |
+| 6.3 |       id |             |              id |
 
 5.

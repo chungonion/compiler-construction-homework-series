@@ -165,3 +165,35 @@ A . ID - F + F
 5.
 
 The FIRST+ set contains non-empty intersections for the F non-terminal, which makes it not LL(1) compliant. For example, this goes wrong on input `(35)`, because at the F rule this can either go to 5 or 11, through 7. For a LL(1) parser, this has decision should be clear by just looking one step ahead.
+
+```
+1  E    -> F E'
+2  E'   -> '+' F E'
+3       |  '-' F E'
+4       |  epsilon
+5  F    -> '(' F'
+6       |  NUM G'
+7       |  ID G'
+8  G'   -> '[' E ']' G'
+9       |  '.' ID G' 
+10      |  epsilon
+11 F'   -> ID F''
+12      |  '(' F' E' ')'G'
+13      |  NUM G' E' ')'G'
+14 F''  -> ')' F'''
+15      |  '[' E ']' G' E' ')'G'
+16      |  '.' ID G' E' ')'G'
+17      |  '+' F E' ')'G'
+18      |  '-' F E' ')'G'
+19 F''' -> F
+20     |   G'
+```
+
+By doing the following:
+
+1. Inlining `A` in `G` and `G` in `F`
+2. Combining 2 lines that both started with `(`, resulting in `F'`
+3. Expand `E` into `F'`
+4. Combining 2 lines that both started with `ID`, resulting in `F''`
+5. Within `F''`, expanding `G'` and `E'` because they both contain epsilon, resulting in a possible ambiguity
+6. Combining 2 lines that both started with `)`, resulting in `F'''`

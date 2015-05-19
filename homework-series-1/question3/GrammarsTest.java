@@ -5,14 +5,20 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class G0Test {
+public class GrammarsTest {
     @Test
-    public void test() {
+    public void testParseTree() {
         assertEquals("(e (e (f (g (g (a a)) [ (e (e (f (g (a i)))) + (f (g (a 1)))) ]))) + (f (g (g (a b)) . field)))",
                 parseStringToTree("a[i+1]+b.field"));
         assertEquals("(e (e (e (f (g (g (a ( (e (f ( Type ) (f (g (a x))))) ))) . i))) - (f (g (a 10)))) + (f (g (a y))))",
                 parseStringToTree("((Type)x).i-10+y"));
+    }
+
+    @Test
+    public void testLL1() {
+        assertTrue(new AwesomeLLCalc(Grammars.makeG2()).isLL1());
     }
 
     public String parseStringToTree(String text) {

@@ -106,19 +106,19 @@ A . ID - F + F
 3.
 
 ```
-1.1 E  -> F E'
-2.1 E' -> '+' F E'
-2.2    | '-' F E'
-2.3    | epsilon
-3.1 F  -> '(' ID ')' F
-3.2    |  G
-4.1 G  -> A G'
-5.1 G' -> '[' E ']' G'
-5.2    | '.' ID G'
-5.3    | epsilon
-6.1 A  -> '(' E ')'
-6.2    |  NUM
-6.3    |  ID
+1  E  -> F E'
+2  E' -> '+' F E'
+3     |  '-' F E'
+4     |  epsilon
+5  F  -> '(' ID ')' F
+6     |  G
+7  G  -> A G'
+8  G' -> '[' E ']' G'
+9     |  '.' ID G'
+10    |  epsilon
+11  A -> '(' E ')'
+12    |  NUM
+13    |  ID
 ```
 
 4.
@@ -146,22 +146,22 @@ A . ID - F + F
 
 ### FIRST+
 
-|   - |    first |      follow |          first+ |
-|-----|----------|-------------|-----------------|
-| 1.1 | ( num id |             |        ( num id |
-| 2.1 |        + |             |               + |
-| 2.2 |        - |             |               - |
-| 2.3 |  epsilon |     eof ] ) | epsilon eof ] ) |
-| 3.1 |        ( |             |               ( |
-| 3.2 |   num id |             |        ( num id |
-| 4.1 |   num id |             |        ( num id |
-| 5.1 |        [ |             |               [ |
-| 5.2 |        . |             |               . |
-| 5.3 |  epsilon | + - eof ] ) |     eof + - ] ) |
-| 6.1 |        ( |             |               ( |
-| 6.2 |      num |             |             num |
-| 6.3 |       id |             |              id |
+|  - |    first |      follow |          first+ |
+|----|----------|-------------|-----------------|
+|  1 | ( num id |             |        ( num id |
+|  2 |        + |             |               + |
+|  3 |        - |             |               - |
+|  4 |  epsilon |     eof ] ) | epsilon eof ] ) |
+|  5 |        ( |             |               ( |
+|  6 |   num id |             |        ( num id |
+|  7 |   num id |             |        ( num id |
+|  8 |        [ |             |               [ |
+|  9 |        . |             |               . |
+| 10 |  epsilon | + - eof ] ) |     eof + - ] ) |
+| 11 |        ( |             |               ( |
+| 12 |      num |             |             num |
+| 13 |       id |             |              id |
 
 5.
 
-The FIRST+ set contains non-empty intersections for the F non-terminal, which makes it not LL(1) compliant. For example, this goes wrong on input `(35)`, because at the F rule this can either go to 3.1 or 6.1, through 4.1. For a LL(1) parser, this has decision should be clear by just looking one step ahead.
+The FIRST+ set contains non-empty intersections for the F non-terminal, which makes it not LL(1) compliant. For example, this goes wrong on input `(35)`, because at the F rule this can either go to 5 or 11, through 7. For a LL(1) parser, this has decision should be clear by just looking one step ahead.

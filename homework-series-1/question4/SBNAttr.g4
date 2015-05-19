@@ -1,5 +1,7 @@
 grammar SBNAttr;
 
+header{package question4;}
+
 number returns [int value]
 		: s=sign l=list[0] { $value = ($s.negative ? -$l.value : $l.value); };
 

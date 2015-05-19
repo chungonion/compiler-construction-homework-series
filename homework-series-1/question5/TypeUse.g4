@@ -1,6 +1,6 @@
 grammar TypeUse;
 
-@header{package pp.homework.q1_5;}
+@header{package question5;}
 
 program : '(' series ')' ;
 series  : unit* ;

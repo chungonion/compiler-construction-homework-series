@@ -1,4 +1,4 @@
-package pp.homework.q2_3;
+package question3;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
@@ -8,7 +8,6 @@ import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import pp.homework.ErrorListener;
 import pp.iloc.Simulator;
 import pp.iloc.model.Op;
 import pp.iloc.model.OpCode;

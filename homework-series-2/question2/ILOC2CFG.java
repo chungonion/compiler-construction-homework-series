@@ -51,22 +51,21 @@ public class ILOC2CFG {
 
         Node currentNode = null;
         for (Instr instruction : prog.getInstr()) {
-            String label = null;
-            if (instruction.getLabel() != null) {
+            String label;
+            if (instruction.hasLabel()) {
                 label = instruction.getLabel().getValue();
                 currentNode = ILOC2CFG.getOrCreate(label, nodes, graph);
             }
 
-            Iterator<Op> it = instruction.iterator();
-            while (it.hasNext()) {
-                Op op = it.next();
-
+            for (Op op : instruction) {
                 if (op.getClaz() == OpClaz.CONTROL) {
                     reachableNodes.add(currentNode.getId());
 
                     if (op.getOpCode() == OpCode.cbr) {
                         for (Operand arg : op.getArgs()) {
-                            if (arg == op.getArgs().get(0)) { continue; } // skip register arg
+                            if (arg == op.getArgs().get(0)) { // skip register arg
+                                continue;
+                            }
                             reachableNodes.add(arg.toString());
                             currentNode.addEdge(ILOC2CFG.getOrCreate(arg.toString(), nodes, graph));
                         }
@@ -103,7 +102,6 @@ public class ILOC2CFG {
 
                 } else {
                     previousMinimalNode = minimalNode;
-
                 }
             }
         }

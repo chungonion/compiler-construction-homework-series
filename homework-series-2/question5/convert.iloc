@@ -1,0 +1,31 @@
+start:            in "Number " => r_number
+                  in "Base? " => r_base
+                  push r_number
+                  push r_base
+                  loadI #end => r_return_address 
+                  push r_return_address // push #end as return address
+convert:          pop => r_return_address
+                  pop => r_base_copy // copy base to register
+                  pop => r_number_copy // copy number to register
+                  div r_number_copy, r_base_copy => r_rest
+                  mult r_base_copy, r_rest => r_next_digit
+                  sub r_number_copy, r_next_digit => r_next_digit
+                  out "Next digit: ", r_next_digit
+                  loadI 0 => r_0
+                  cmp_EQ r_rest, r_0 => r_cmp // (rest == 0)
+                  cbr r_cmp -> convert_then, convert_else
+convert_then:     loadI 1 => r_return_value
+                  push r_return_value // push `1` as result
+                  jump -> r_return_address // jump back
+convert_else:     push r_return_address // push previous return address back
+                  push r_rest // push rest as second argument
+                  push r_base_copy // push base as first argument
+                  loadI #convert_else_end => r_return_address
+                  push r_return_address // push #convert_else_end as return address
+                  jumpI -> convert // call `convert` recursively
+convert_else_end: pop => r_return_value
+                  pop => r_return_address
+                  addI r_return_value, 1 => r_return_value
+                  push r_return_value // reorder stack to have value on top
+                  jump -> r_return_address // jump back
+end:              out "Length: ", r_return_value

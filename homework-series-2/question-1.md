@@ -90,3 +90,7 @@ Question 1
 * 3:idExpr (2) - 4:idExpr (2)
 * 4:blockStat - 4:breakStat
 * 8:printStat
+
+3.
+
+The basic blocks from both CFGs are interchangeable. The action still occur in the same order and do in fact the same. They only differ in the level of detail. For example, in the latter CFG arrows for the `for` loop do not point to the same node, but they do still point to the same basic block. This is also generalizable to other source programs.

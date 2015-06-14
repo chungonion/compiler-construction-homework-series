@@ -75,7 +75,7 @@ Question 1
 |   v             |
 |   4:idExpr (1)  |
 |   v             |
-|   4:idExpr (2) --
+|   4:idExpr (2) -
 |   v
 |   4:blockStat
 |   v

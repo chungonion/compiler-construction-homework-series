@@ -52,7 +52,7 @@ public class ILOC2CFG {
         Node currentNode = null;
         for (Instr instruction : prog.getInstr()) {
             String label;
-            if (instruction.hasLabel()) {
+            if (instruction.hasLabel() && currentNode.getEdges().size() > 0) {
                 label = instruction.getLabel().getValue();
                 currentNode = ILOC2CFG.getOrCreate(label, nodes, graph);
             }
